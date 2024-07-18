@@ -3,14 +3,16 @@
 1. Navigate to you kafka directory and open two command prompt
 
 2. Run zoo-keeper server using this command (windows)
-        .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 
-3. Run kafka server using this command (windows)
-        .\bin\windows\kafka-server-start.bat .\config\server.properties
+           .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 
-4. Copy the groupId present in the .\config\consumer.properties
+4. Run kafka server using this command (windows)
 
-5. In product-query-service navigate to ProductServiceImpl.java and replace the groupId with this
+           .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+6. Copy the groupId present in the .\config\consumer.properties
+
+7. In product-query-service navigate to ProductServiceImpl.java and replace the groupId with this
 
         @KafkaListener(topics = "product-event-topic", groupId = "your-kafka-consumer-groupId")
         public void processProductEvent(ProductEvent productEvent) throws Exception{
@@ -36,6 +38,6 @@
            }
          }
 
-6. Run producer app (product-command-service)
+8. Run producer app (product-command-service)
 
-7. Run consumer app (product-query-service)
+9. Run consumer app (product-query-service)
